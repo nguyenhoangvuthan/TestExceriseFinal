@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "moviesdatafactorytef"
+		},
+		"ADLS_Service_accountKey": {
+			"value": ""
+		},
+		"AzureBlobStorage_Service_connectionString": {
+			"value": ""
+		},
+		"ADLS_Service_properties_typeProperties_url": {
+			"value": "https://moviescurated2022tef.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
