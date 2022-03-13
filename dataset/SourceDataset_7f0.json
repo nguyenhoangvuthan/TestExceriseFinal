@@ -1,0 +1,35 @@
+{
+	"name": "SourceDataset_7f0",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_Service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MovieActorID",
+				"type": "String"
+			},
+			{
+				"name": "MovieID",
+				"type": "String"
+			},
+			{
+				"name": "ActorID",
+				"type": "String"
+			}
+		]
+	}
+}
