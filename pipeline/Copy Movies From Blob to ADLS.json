@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_7f0",
+				"name": "Copy Movie",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
