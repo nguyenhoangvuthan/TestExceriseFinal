@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_7f0",
+	"name": "ADLS2_Data",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_Service",

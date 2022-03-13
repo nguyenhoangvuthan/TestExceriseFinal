@@ -53,13 +53,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_7f0",
+						"referenceName": "Blob_Data",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_7f0",
+						"referenceName": "ADLS2_Data",
 						"type": "DatasetReference"
 					}
 				]
