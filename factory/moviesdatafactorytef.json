@@ -1,0 +1,9 @@
+{
+	"name": "moviesdatafactorytef",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bbca6bd7-b3f3-48c3-827d-8feb48c75533",
+		"tenantId": "c52023da-af69-4493-a601-36b0b97d0c3a"
+	}
+}
