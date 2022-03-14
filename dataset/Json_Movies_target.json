@@ -1,22 +1,19 @@
 {
-	"name": "Movies_Target",
+	"name": "Json_Movies_target",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_CuratedLayer",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "DelimitedText",
+		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "smallfiles",
+				"fileName": "movies.json",
 				"fileSystem": "target2"
-			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
-			"quoteChar": "\""
+			}
 		},
-		"schema": []
+		"schema": {}
 	}
 }
