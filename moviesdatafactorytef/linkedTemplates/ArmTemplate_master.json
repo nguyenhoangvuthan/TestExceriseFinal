@@ -31,6 +31,10 @@
 			"type": "string",
 			"defaultValue": "https://moviescurated2022tef.dfs.core.windows.net"
 		},
+		"Web_NY_Taxi_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://nyc-tlc.s3.amazonaws.com/trip+data/yellow_tripdata_2021-07.csv"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -75,6 +79,9 @@
 					},
 					"ADLS_Service_properties_typeProperties_url": {
 						"value": "[parameters('ADLS_Service_properties_typeProperties_url')]"
+					},
+					"Web_NY_Taxi_properties_typeProperties_url": {
+						"value": "[parameters('Web_NY_Taxi_properties_typeProperties_url')]"
 					}
 				}
 			},
