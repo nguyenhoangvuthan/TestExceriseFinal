@@ -5,11 +5,20 @@
 		"factoryName": {
 			"value": "moviesdatafactorytef"
 		},
+		"ADLS_CuratedLayer_accountKey": {
+			"value": ""
+		},
 		"ADLS_Service_accountKey": {
 			"value": ""
 		},
 		"AzureBlobStorage_Service_connectionString": {
 			"value": ""
+		},
+		"Blob_IngestLayer_connectionString": {
+			"value": ""
+		},
+		"ADLS_CuratedLayer_properties_typeProperties_url": {
+			"value": "https://moviescurated2022tef.dfs.core.windows.net"
 		},
 		"ADLS_Service_properties_typeProperties_url": {
 			"value": "https://moviescurated2022tef.dfs.core.windows.net"

@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "moviesdatafactorytef"
 		},
+		"ADLS_CuratedLayer_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_CuratedLayer'"
+		},
 		"ADLS_Service_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLS_Service'"
@@ -14,6 +18,14 @@
 		"AzureBlobStorage_Service_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage_Service'"
+		},
+		"Blob_IngestLayer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Blob_IngestLayer'"
+		},
+		"ADLS_CuratedLayer_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviescurated2022tef.dfs.core.windows.net"
 		},
 		"ADLS_Service_properties_typeProperties_url": {
 			"type": "string",
@@ -46,11 +58,20 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"ADLS_CuratedLayer_accountKey": {
+						"value": "[parameters('ADLS_CuratedLayer_accountKey')]"
+					},
 					"ADLS_Service_accountKey": {
 						"value": "[parameters('ADLS_Service_accountKey')]"
 					},
 					"AzureBlobStorage_Service_connectionString": {
 						"value": "[parameters('AzureBlobStorage_Service_connectionString')]"
+					},
+					"Blob_IngestLayer_connectionString": {
+						"value": "[parameters('Blob_IngestLayer_connectionString')]"
+					},
+					"ADLS_CuratedLayer_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_CuratedLayer_properties_typeProperties_url')]"
 					},
 					"ADLS_Service_properties_typeProperties_url": {
 						"value": "[parameters('ADLS_Service_properties_typeProperties_url')]"
