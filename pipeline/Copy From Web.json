@@ -1,9 +1,9 @@
 {
-	"name": "CopyActivityDemo",
+	"name": "Copy From Web",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Movies",
+				"name": "Copy NY Taxi Data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -18,10 +18,8 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"wildcardFileName": "*",
-							"enablePartitionDiscovery": false
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
@@ -30,7 +28,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -50,13 +48,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Movies_Ingest",
+						"referenceName": "Source_NY_Taxi",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Movies_Target",
+						"referenceName": "NY_Taxi",
 						"type": "DatasetReference"
 					}
 				]
