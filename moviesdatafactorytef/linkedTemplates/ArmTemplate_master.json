@@ -33,7 +33,7 @@
 		},
 		"Web_NY_Taxi_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://nyc-tlc.s3.amazonaws.com/trip+data/yellow_tripdata_2021-07.csv"
+			"defaultValue": "https://nyc-tlc.s3.amazonaws.com/trip+data/"
 		},
 		"containerUri": {
 			"type": "string",

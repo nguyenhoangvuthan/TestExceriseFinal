@@ -33,7 +33,7 @@
 		},
 		"Web_NY_Taxi_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://nyc-tlc.s3.amazonaws.com/trip+data/yellow_tripdata_2021-07.csv"
+			"defaultValue": "https://nyc-tlc.s3.amazonaws.com/trip+data/"
 		}
 	},
 	"variables": {
@@ -440,7 +440,14 @@
 					{
 						"name": "Copy NY Taxi Data",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Set Date Variable",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -485,21 +492,57 @@
 							{
 								"referenceName": "Source_NY_Taxi",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"fileName": {
+										"value": "@pipeline().parameters.p_FileName",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "NY_Taxi",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"Datedir": {
+										"value": "@variables('Date')",
+										"type": "Expression"
+									},
+									"FileName": "NY_Taxi_2021_06.csv"
+								}
 							}
 						]
+					},
+					{
+						"name": "Set Date Variable",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "Date",
+							"value": {
+								"value": "@formatDateTime(utcNow(), 'ddMMyyyy')",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"p_FileName": {
+						"type": "string",
+						"defaultValue": "yellow_tripdata_2021-02.csv"
+					}
+				},
+				"variables": {
+					"Date": {
+						"type": "String",
+						"defaultValue": "20220314"
+					}
 				},
 				"annotations": []
 			},
@@ -532,11 +575,20 @@
 					"referenceName": "Web_NY_Taxi",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"fileName": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "HttpServerLocation"
+						"type": "HttpServerLocation",
+						"relativeUrl": {
+							"value": "@dataset().fileName",
+							"type": "Expression"
+						}
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -558,12 +610,27 @@
 					"referenceName": "Blob_IngestLayer",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"Datedir": {
+						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "NY_2021.csv",
+						"fileName": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().Datedir",
+							"type": "Expression"
+						},
 						"container": "source"
 					},
 					"columnDelimiter": ",",
