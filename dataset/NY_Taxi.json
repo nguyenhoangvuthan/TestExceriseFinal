@@ -5,12 +5,27 @@
 			"referenceName": "Blob_IngestLayer",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Datedir": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "NY_2021.csv",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().Datedir",
+					"type": "Expression"
+				},
 				"container": "source"
 			},
 			"columnDelimiter": ",",
