@@ -1,0 +1,12 @@
+{
+	"name": "Web_NY_Taxi",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://nyc-tlc.s3.amazonaws.com/trip+data/yellow_tripdata_2021-07.csv",
+			"enableServerCertificateValidation": false,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
